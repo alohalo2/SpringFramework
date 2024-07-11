@@ -12,7 +12,7 @@ public interface NoticeService {
 
     void delete(int id);
 
-    List<NoticeDto> getBoardList();
+    List<NoticeDto> getNoticeList();
 
-    NoticeDto getBoard(int id);
+    NoticeDto getNotice(int id);
 }
