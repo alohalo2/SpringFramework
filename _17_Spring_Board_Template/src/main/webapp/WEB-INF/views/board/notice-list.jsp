@@ -111,7 +111,7 @@
             </div>
 
             <div class="container mt-3 mb-5 w-50 d-flex justify-content-end">
-                <button type="button" class="btn btn-outline-secondary" onclick="location.href='post.html'">글 등록</button>
+                <button type="button" class="btn btn-outline-secondary" onclick="location.href='post.do'">글 등록</button>
             </div>
         </main>
 
