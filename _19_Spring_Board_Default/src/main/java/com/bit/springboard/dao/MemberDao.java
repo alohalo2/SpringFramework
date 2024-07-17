@@ -12,6 +12,7 @@ import java.util.List;
 public class MemberDao {
     private SqlSessionTemplate mybatis;
 
+
     @Autowired
     public void MemberDao(SqlSessionTemplate sqlSessionTemplate) {
         this.mybatis = sqlSessionTemplate;

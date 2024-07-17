@@ -11,6 +11,7 @@ public class MemberDto {
     private String nickname;
     private String email;
     private String tel;
+    private String role;
 
     public int getId() {
         return id;
@@ -58,6 +59,14 @@ public class MemberDto {
 
     public void setTel(String tel) {
         this.tel = tel;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     @Override

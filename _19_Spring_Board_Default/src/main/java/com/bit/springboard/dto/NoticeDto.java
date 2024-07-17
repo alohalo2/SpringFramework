@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 public class NoticeDto {
 
+    private String type = "notice";
     private int id;
     private String title;
     private String content;
@@ -75,6 +76,14 @@ public class NoticeDto {
 
     public void setNickname(String nickname) {
         this.nickname = nickname;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     @Override

@@ -36,7 +36,7 @@
             </div>
         </main>
 
-        <jsp:include page="${pageContext.request.contextPath}/header.jsp"></jsp:include>
+        <jsp:include page="${pageContext.request.contextPath}/footer.jsp"></jsp:include>
     </div>
     <script>
         $(() => {

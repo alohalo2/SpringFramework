@@ -13,7 +13,11 @@
         ) VALUES (
             #{title},
             #{content},
-            #{WRITER_ID}
+            (
+                SELECT M.ID
+                FROM MEMBER M
+                WHERE M.NICKNAME = #{nickname}
+            )
         )
     </insert>
     <update id="modify" parameterType="notice">
