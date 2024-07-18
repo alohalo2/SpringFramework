@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 // JDBC Template 사용방식 2
 // JdbcTemplate을 필드로 선언하고 의존성을 주입받아서 사용하는 방식
@@ -35,13 +36,13 @@ public class FreeBoardDao {
         System.out.println("FreeBoardDao의 modify 메소드 실행 종료");
     }
 
-    public List<BoardDto> getBoardList() {
+    public List<BoardDto> getBoardList(Map<String, String> searchMap) {
         System.out.println("FreeBoardDao의 getBoardList 메소드 실행");
 
         List<BoardDto> boardDtoList = new ArrayList<>();
 
         // SqlSesstionTemplate의 selectList 메소드 사용
-        boardDtoList = mybatis.selectList("FreeBoardDao.getBoardList");
+        boardDtoList = mybatis.selectList("FreeBoardDao.getBoardList", searchMap);
 
         System.out.println("FreeBoardDao의 getBoardList 메소드 실행 종료");
         return boardDtoList;
@@ -66,5 +67,9 @@ public class FreeBoardDao {
 
         System.out.println("FreeBoardDao의 getBoard 메소드 실행 종료");
         return boardDto;
+    }
+
+    public void updateCnt(int id){
+        mybatis.update("FreeBoardDao.updateCnt", id);
     }
 }
