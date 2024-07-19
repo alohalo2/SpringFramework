@@ -1,0 +1,129 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.bit</groupId>
+  <artifactId>Book_Management_System</artifactId>
+  <packaging>war</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>Book_Management_System Maven Webapp</name>
+
+  <!--Java 17 버전 / Spring Framework의 6.0.22 버전 / AspectJ의 1.9.22 버전 / SLF4J(Simple Logging Facade for Java)의 2.0.13 버전을
+  사용하도록 하는 의존성-->
+  <properties>
+    <java-version>17</java-version>
+    <org.springframework-version>6.0.22</org.springframework-version>
+    <org.aspectj-version>1.9.22</org.aspectj-version>
+    <org.slf4j-version>2.0.13</org.slf4j-version>
+  </properties>
+
+  <dependencies>
+
+    <!-- AspectJ관련 의존성 -->
+    <!--"관점 지향 프로그래밍"이라는 개념을 구현하기 위한 도구-->
+    <!--AOP의 기본 개념
+    AOP에서는 횡단 관심사를 분리하여 코드를 더 모듈화하고 유지보수하기 쉽게 만듭니다. AOP의 핵심 개념은 다음과 같습니다:
+
+    -관점(Aspect): 횡단 관심사를 모듈화한 것. 예를 들어, 로깅 기능을 한 곳에 모아둔 모듈입니다.
+    -조인 포인트(Join Point): 횡단 관심사가 적용될 수 있는 지점. 예를 들어, 메서드 호출, 객체 생성 등이 될 수 있습니다.
+    -어드바이스(Advice): 특정 조인 포인트에서 실행될 코드. 예를 들어, 메서드가 호출되기 전이나 후에 실행되는 코드입니다.
+    -포인트컷(Pointcut): 어드바이스가 적용될 조인 포인트를 선택하는 규칙. 예를 들어, 특정 패턴의 메서드에만 적용되도록 할 수 있습니다.-->
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjrt</artifactId>
+      <version>${org.aspectj-version}</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+      <version>${org.aspectj-version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <!-- @Inject -->
+    <dependency>
+      <groupId>jakarta.inject</groupId>
+      <artifactId>jakarta.inject-api</artifactId>
+      <version>2.0.1</version>
+    </dependency>
+
+    <!-- Servlet -->
+    <dependency>
+      <groupId>jakarta.servlet</groupId>
+      <artifactId>jakarta.servlet-api</artifactId>
+      <version>6.0.0</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>jakarta.servlet.jsp</groupId>
+      <artifactId>jakarta.servlet.jsp-api</artifactId>
+      <version>3.1.0</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>jakarta.el</groupId>
+      <artifactId>jakarta.el-api</artifactId>
+      <version>5.0.0</version>
+    </dependency>
+    <dependency>
+      <groupId>jakarta.servlet.jsp.jstl</groupId>
+      <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+      <version>3.0.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.glassfish.web</groupId>
+      <artifactId>jakarta.servlet.jsp.jstl</artifactId>
+      <version>3.0.1</version>
+    </dependency>
+
+
+    <!-- Spring 관련 의존성(라이브러리)-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+      <version>${org.springframework-version}</version>
+      <exclusions>
+        <!-- Exclude Commons Logging in favor of SLF4j -->
+        <exclusion>
+          <groupId>commons-logging</groupId>
+          <artifactId>commons-logging</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>${org.springframework-version}</version>
+    </dependency>
+
+  </dependencies>
+  <build>
+
+    <!--플러그인 및 자바 버전 설정-->
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.11.0</version>
+        <configuration>
+          <source>17</source>
+          <target>17</target>
+          <compilerArgument>-Xlint:all</compilerArgument>
+          <showWarnings>true</showWarnings>
+          <showDeprecation>true</showDeprecation>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>3.3.0</version>
+        <configuration>
+          <mainClass>org.test.int1.Main</mainClass>
+        </configuration>
+      </plugin>
+    </plugins>
+
+  </build>
+</project>

@@ -123,7 +123,15 @@
     <script>
         $(() => {
             $("#search-icon").on("click", (e) => {
+                //다른 페이지 내에서도 검색할 수 있도록 pageNum을 1로 만들어줌
+                $("input[name='pageNum']").val(1);
                 $("#search-form").submit();
+            });
+
+            $("input[name='searchKeyword']").on("keypress", (e) => {
+                if (e.key === 'Enter') {
+                    $("input[name='pageNum']").val(1);
+                }
             });
 
             $(".pagination a").on("click", (e) => {

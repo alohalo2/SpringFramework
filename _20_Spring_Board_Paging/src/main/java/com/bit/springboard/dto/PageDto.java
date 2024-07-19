@@ -10,9 +10,9 @@ public class PageDto {
     // 총 게시글의 개수
     private int total;
     // Creteria 객체
-    private Creteria cri;
+    private Criteria cri;
 
-    public PageDto(Creteria cri, int total) {
+    public PageDto(Criteria cri, int total) {
         this.cri = cri;
         this.total = total;
 
@@ -27,14 +27,13 @@ public class PageDto {
 
         // endPage가 realEndPage보다 커지면
         // endPage에 realEndPage를 주입
-        if (endPage > realEndPage) {
+        if(endPage > realEndPage) {
             this.endPage = realEndPage;
         }
 
         // 이전, 다음 버튼 표출 여부
         this.prev = this.cri.getPageNum() > 1;
         this.next = this.cri.getPageNum() < this.endPage;
-
     }
 
     public int getStartPage() {
@@ -77,11 +76,11 @@ public class PageDto {
         this.total = total;
     }
 
-    public Creteria getCri() {
+    public Criteria getCri() {
         return cri;
     }
 
-    public void setCri(Creteria cri) {
+    public void setCri(Criteria cri) {
         this.cri = cri;
     }
 
